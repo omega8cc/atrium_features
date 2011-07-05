@@ -120,6 +120,25 @@ function atrium_casetracker_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'content_extra_weights_casetracker_basic_case';
+  $strongarm->value = array(
+    'title' => '-5',
+    'body_field' => '-1',
+    'revision_information' => '3',
+    'author' => '2',
+    'options' => '4',
+    'comment_settings' => '6',
+    'menu' => '-2',
+    'taxonomy' => '-4',
+    'book' => '1',
+    'attachments' => '5',
+    'og_nodeapi' => '0',
+  );
+
+  $export['content_extra_weights_casetracker_basic_case'] = $strongarm;
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_options_casetracker_basic_case';
   $strongarm->value = array(
     0 => 'status',
@@ -150,7 +169,7 @@ function atrium_casetracker_strongarm() {
     ),
     'body_field' => array(
       'region' => 'main',
-      'weight' => '2',
+      'weight' => '3',
       'has_required' => FALSE,
       'title' => NULL,
       'hidden' => 0,
@@ -197,14 +216,14 @@ function atrium_casetracker_strongarm() {
     ),
     'buttons' => array(
       'region' => 'main',
-      'weight' => '5',
+      'weight' => '6',
       'has_required' => FALSE,
       'title' => NULL,
       'hidden' => 0,
     ),
     'notifications' => array(
       'region' => 'main',
-      'weight' => '3',
+      'weight' => '4',
       'has_required' => FALSE,
       'title' => 'Notifications',
       'collapsed' => 0,
@@ -227,7 +246,7 @@ function atrium_casetracker_strongarm() {
     ),
     'attachments' => array(
       'region' => 'main',
-      'weight' => '4',
+      'weight' => '5',
       'has_required' => FALSE,
       'title' => 'File attachments',
       'collapsed' => 0,
@@ -247,6 +266,13 @@ function atrium_casetracker_strongarm() {
       'title' => 'Groups',
       'collapsed' => 1,
       'hidden' => 1,
+    ),
+    'field_due_date' => array(
+      'region' => 'main',
+      'weight' => '2',
+      'has_required' => FALSE,
+      'title' => 'Due Date',
+      'hidden' => 0,
     ),
   );
 
