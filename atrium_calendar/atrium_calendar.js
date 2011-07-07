@@ -20,7 +20,7 @@ function atrium_calendar_event_type_init () {
     for (var i = 0; i < mySelect.options.length; i++){
       var option = mySelect.options[i];
       $('div.atrium_calendar_event_type div.tid-options').children('div').children('span.tid-'+option.value).addClass('selected').removeClass('deactive');
-      document.getElementById("edit-tid").options[i].setAttribute('selected','selected');
+      document.getElementById("edit-tid").options[i].selected = true;
     }
   }
   // Add click handler
@@ -36,20 +36,20 @@ function atrium_calendar_event_type_init () {
         return;
       };
     });
-
+    
+    var selectId;
     for (var i = 0; i < mySelect.options.length; i++){
       var option = mySelect.options[i];
-      var selectId;
       if (option.value == tid){
         selectId = i;
       }
     }
 
     if ($(this).is('.selected')){
-      document.getElementById("edit-tid").options[selectId].removeAttribute('selected');
+      document.getElementById("edit-tid").options[selectId].selected = false;
     }
     else{
-      document.getElementById("edit-tid").options[selectId].setAttribute('selected','selected');
+      document.getElementById("edit-tid").options[selectId].selected = true;
     }
     
     $(this).toggleClass('selected').toggleClass('deactive');
