@@ -34,6 +34,12 @@ function atrium_calendar_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'atrium_calendar-filters' => array(
+          'module' => 'atrium_calendar',
+          'delta' => 'filters',
+          'region' => 'right',
+          'weight' => 2,
+        ),
         'views-calendar_upcoming-block_1' => array(
           'module' => 'views',
           'delta' => 'calendar_upcoming-block_1',

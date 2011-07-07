@@ -60,7 +60,9 @@ function atrium_calendar_context_links_alter(&$links) {
 function atrium_calendar_block($op = 'list', $delta = 0, $edit = array()) {
   switch ($op) {
     case 'list':
-      return array('mini' => array('info' => t('Mini calendar')));
+      $blocks['mini'] = array('info' => t('Mini calendar'));
+      $blocks['filters'] = array('info' => t('Atrium: Calendar Event Type filter'));
+      return $blocks;  
     default:
       $function = "_atrium_calendar_block_{$delta}";
       if (function_exists($function)) {
@@ -120,4 +122,79 @@ function _atrium_calendar_block_mini($op, $edit) {
     $block['content'] = views_embed_view('calendar_listing', 'block_1', $args);
   }
   return $block;
+}
+
+
+/**
+ * Preprocessor for theme('views_view').
+ */
+function atrium_calendar_preprocess_views_view(&$vars) {
+  $view = $vars['view'];
+  if ($view->name == 'calendar_listing' || $view->name == 'calendar_upcoming') {
+    // Whisk away exposed filter for display in a block
+    _atrium_calendar_block_filters(NULL, $vars['exposed']);
+    $vars['exposed'] = '';
+  }
+}
+
+/**
+ * Filter block.
+ */
+function _atrium_calendar_block_filters($op = NULL, $set = '') {
+  static $filters;
+  
+  if (!empty($set)) {
+    $filters = $set;
+    return;
+  }
+  if (!empty($filters)) {
+    return array('subject' => t('Event Types'), 'content' => $filters);
+  }
+  return array();
+}
+
+
+function atrium_calendar_form_alter(&$form, $form_state, $form_id) {
+  if ($form_id == 'views_exposed_form' && ($form['#id'] == 'views-exposed-form-calendar-listing-page-1' || $form['#id'] == 'views-exposed-form-calendar-upcoming-page-1')) {
+    $form['tid']['#default_value'] = implode(array_keys($form['tid']['#options']));
+    $form['#theme'] = 'atrium_calendar_event_type_form';
+ 
+    $output = '';
+    // Render each of the user selector options
+    if ($form['tid']['#options']) {
+      $options = '';
+      foreach ($form['tid']['#options'] as $tid => $term) {
+        $options .= "<div class='crayon-$tid' ><span class='tid-$tid deactive'>$term</span></div>";
+      }
+      $form['options'] = array(
+        '#type' => 'markup',
+        '#value' => '',
+        '#weight' => -1,
+        '#value' => '<div class="tid-options" style="display: none;">'. $options .'</div>',
+      );
+    }
+  }
+}
+
+
+/**
+ * Theme function for rendering the js-enabled team notifications widget.
+ */
+function theme_atrium_calendar_event_type_form($form) {
+  // Add javascript
+  drupal_add_css(drupal_get_path('module', 'crayon') .'/crayon.css');
+  drupal_add_js(drupal_get_path('module', 'atrium_calendar') .'/atrium_calendar.js', 'module');
+  drupal_add_css(drupal_get_path('module', 'atrium_calendar') .'/atrium_calendar.css');
+  
+  $output .= "<div class='atrium_calendar_event_type clear-block'>". drupal_render($form) ."</div>";
+  return $output;
+}
+
+/**
+ * Implementation of hook_theme()
+ */
+function atrium_calendar_theme() {
+  return array(
+    'atrium_calendar_event_type_form' => array(),
+  );
 }

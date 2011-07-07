@@ -477,6 +477,41 @@ function atrium_calendar_views_default_views() {
       'field' => 'field_date_value',
       'relationship' => 'none',
     ),
+    'tid' => array(
+      'label' => 'Term ID',
+      'alter' => array(
+        'alter_text' => 0,
+        'text' => '',
+        'make_link' => 0,
+        'path' => '',
+        'link_class' => '',
+        'alt' => '',
+        'prefix' => '',
+        'suffix' => '',
+        'target' => '',
+        'help' => '',
+        'trim' => 0,
+        'max_length' => '',
+        'word_boundary' => 1,
+        'ellipsis' => 1,
+        'html' => 0,
+        'strip_tags' => 0,
+      ),
+      'empty' => '',
+      'hide_empty' => 0,
+      'empty_zero' => 0,
+      'set_precision' => FALSE,
+      'precision' => 0,
+      'decimal' => '.',
+      'separator' => ',',
+      'prefix' => '',
+      'suffix' => '',
+      'exclude' => 1,
+      'id' => 'tid',
+      'table' => 'term_data',
+      'field' => 'tid',
+      'relationship' => 'none',
+    ),
   ));
   $handler->override_option('arguments', array(
     'date_argument' => array(
@@ -603,9 +638,87 @@ function atrium_calendar_views_default_views() {
   $handler->override_option('style_options', array(
     'grouping' => '',
     'style' => 'full',
+    'colorby' => 'tid',
     'quickadd' => 'event:field_date',
   ));
   $handler = $view->new_display('page', 'Calendar', 'page_1');
+  $handler->override_option('filters', array(
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'event' => 'event',
+        'feed_ical_item' => 'feed_ical_item',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+    ),
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
+    'current' => array(
+      'operator' => 'active',
+      'value' => '',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'current',
+      'table' => 'spaces',
+      'field' => 'current',
+      'relationship' => 'none',
+    ),
+    'tid' => array(
+      'operator' => 'or',
+      'value' => array(),
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => 0,
+        'operator' => 'tid_op',
+        'identifier' => 'tid',
+        'label' => 'Taxonomy: Term',
+        'optional' => 1,
+        'single' => 1,
+        'remember' => 0,
+        'reduce' => 0,
+      ),
+      'type' => 'select',
+      'limit' => TRUE,
+      'limit_by' => 'module',
+      'vid' => '2',
+      'module' => 'features_event_type',
+      'id' => 'tid',
+      'table' => 'term_node',
+      'field' => 'tid',
+      'hierarchy' => 0,
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
+  ));
   $handler->override_option('path', 'calendar/view');
   $handler->override_option('menu', array(
     'type' => 'default tab',
@@ -625,6 +738,7 @@ function atrium_calendar_views_default_views() {
   $handler->override_option('style_options', array(
     'grouping' => '',
     'style' => 'compact',
+    'colorby' => 'tid',
     'quickadd' => 'event:field_date',
   ));
   $handler->override_option('block_description', 'Calendar');
@@ -761,6 +875,25 @@ function atrium_calendar_views_default_views() {
       'field' => 'current',
       'relationship' => 'none',
     ),
+    'tid' => array(
+      'operator' => 'or',
+      'value' => array(),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'type' => 'select',
+      'limit' => TRUE,
+      'limit_by' => 'module',
+      'vid' => '1',
+      'module' => 'features_event_type',
+      'id' => 'tid',
+      'table' => 'term_node',
+      'field' => 'tid',
+      'hierarchy' => 0,
+    ),
   ));
   $handler->override_option('access', array(
     'type' => 'spaces_feature',
@@ -774,6 +907,112 @@ function atrium_calendar_views_default_views() {
   $handler->override_option('use_pager', '1');
   $handler->override_option('style_plugin', 'table');
   $handler = $view->new_display('page', 'Page: Upcoming events', 'page_1');
+  $handler->override_option('filters', array(
+    'status' => array(
+      'operator' => '=',
+      'value' => 1,
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'event' => 'event',
+        'feed_ical_item' => 'feed_ical_item',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+    ),
+    'date_filter' => array(
+      'operator' => '>=',
+      'value' => array(
+        'min' => NULL,
+        'max' => NULL,
+        'value' => NULL,
+        'default_date' => 'now',
+        'default_to_date' => '',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'date_fields' => array(
+        'node_data_field_date.field_date_value2' => 'node_data_field_date.field_date_value2',
+      ),
+      'date_method' => 'OR',
+      'granularity' => 'second',
+      'form_type' => 'date_select',
+      'default_date' => 'now',
+      'default_to_date' => '',
+      'year_range' => '-3:+3',
+      'id' => 'date_filter',
+      'table' => 'node',
+      'field' => 'date_filter',
+      'relationship' => 'none',
+    ),
+    'current' => array(
+      'operator' => 'active',
+      'value' => '',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'current',
+      'table' => 'spaces',
+      'field' => 'current',
+      'relationship' => 'none',
+    ),
+    'tid' => array(
+      'operator' => 'or',
+      'value' => array(),
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => 0,
+        'operator' => 'tid_op',
+        'identifier' => 'tid',
+        'label' => 'Taxonomy: Term',
+        'optional' => 1,
+        'single' => 1,
+        'remember' => 0,
+        'reduce' => 0,
+      ),
+      'type' => 'select',
+      'limit' => TRUE,
+      'limit_by' => 'module',
+      'vid' => '1',
+      'module' => 'features_event_type',
+      'id' => 'tid',
+      'table' => 'term_node',
+      'field' => 'tid',
+      'hierarchy' => 0,
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
+  ));
   $handler->override_option('path', 'calendar/upcoming');
   $handler->override_option('menu', array(
     'type' => 'tab',
