@@ -5,6 +5,7 @@ dependencies[] = "context"
 dependencies[] = "date"
 dependencies[] = "features"
 dependencies[] = "search"
+dependencies[] = "spaces"
 dependencies[] = "strongarm"
 description = "The casetracker lets you assign tasks to yourself and others and track the progress on a project. "
 features[content][] = "casetracker_basic_case-field_due_date"
@@ -58,5 +59,3 @@ features[views_api][] = "api:2"
 name = "Atrium Case Tracker"
 package = "Features"
 spaces[types][] = "og"
-
-; Autodetected dependencies that are omitted: spaces
