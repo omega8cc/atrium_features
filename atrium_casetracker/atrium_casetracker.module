@@ -229,7 +229,7 @@ function atrium_casetracker_casetracker_case_summary($case, $project) {
 
   $status = casetracker_case_state_load($case->casetracker->case_status_id, 'status');
   $priority = casetracker_case_state_load($case->casetracker->case_priority_id, 'priority');
-  $duedate = format_date(strtotime($case->field_due_date[0]['value']), 'custom', 'D, Y-m-d');
+  $duedate = ($case->field_due_date[0]['value']) ? format_date(strtotime($case->field_due_date[0]['value']), 'custom', 'D, Y-m-d') : NULL;
 
   if (is_numeric($case->casetracker->assign_to)) {
     $assign_to = user_load(array('uid' => $case->casetracker->assign_to));
