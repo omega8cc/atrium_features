@@ -229,7 +229,7 @@ function atrium_casetracker_casetracker_case_summary($case, $project) {
 
   $status = casetracker_case_state_load($case->casetracker->case_status_id, 'status');
   $priority = casetracker_case_state_load($case->casetracker->case_priority_id, 'priority');
-  $duedate = $case->field_due_date[0]['value'];
+  $duedate = format_date(strtotime($case->field_due_date[0]['value']), 'custom', 'D, Y-m-d');
 
   if (is_numeric($case->casetracker->assign_to)) {
     $assign_to = user_load(array('uid' => $case->casetracker->assign_to));
@@ -258,8 +258,10 @@ function atrium_casetracker_casetracker_case_summary($case, $project) {
   $output .= "<div class='project'>{$project}</div>";
   $output .= "<div class='assigned'>{$assigned}</div>";
   $output .= "</div>";
-  $output .= "<div class='secondary'>";
-  if($duedate) {$output .= "<div class='duedate'><label>". t('Due Date') ."</label>{$duedate}</div>"; }
+  $output .= "<div class='secondary";
+  if($duedate) { $output .= " with-duedate"; }
+  $output .= "'>";
+  if($duedate) { $output .= "<div class='duedate'><label>". t('Due Date') ."</label>{$duedate}</div>"; }
   $output .= "<div class='priority'><label>". t('Priority') ."</label>{$priority}</div>";
   $output .= "<div class='type'><label>" . t('Type') . "</label>{$type}</div>";
   $output .= "<div class='updated'><label>". t('Last updated') ."</label>{$last_comment}</div>";
