@@ -23,7 +23,7 @@ function atrium_calendar_install() {
   variable_set('atrium_calendar_vocab', $vid);
   
   if($vid){
-    _wb_advanced_calendar_create_terms($vid, $new);
+    _atrium_calendar_create_terms($vid, $new);
   }else{
     drupal_set_message(t('Something went wrong, no vocabulary found or created'),'error');
   }
@@ -162,7 +162,7 @@ function _atrium_calendar_create_taxonomy(){
 function _atrium_calendar_create_vocab() {
   $vocabulary = array(
     'name'  => CALENDAR_VOCAB,
-    'module' => 'wb_advanced_calendar',
+    'module' => 'atrium_calendar',
     'help' => t('Select the type of event.'),
     'required' => 1,
     'multiple' => 0,
