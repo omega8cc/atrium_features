@@ -19,7 +19,7 @@ function atrium_reader_uninstall() {
  */
 function atrium_reader_schema() {
   // Install data tables.
-  include_once('atrium_reader.features.inc');
+  include_once('atrium_reader.data_default.inc');
   $tables = atrium_reader_data_default();
   $schema = array();
   foreach ($tables as $name => $table) {
