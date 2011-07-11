@@ -5,6 +5,7 @@ dependencies[] = "comment"
 dependencies[] = "context"
 dependencies[] = "diff"
 dependencies[] = "features"
+dependencies[] = "spaces"
 dependencies[] = "strongarm"
 dependencies[] = "views"
 description = "The notebook feature lets you store and share information and attachments."
@@ -46,5 +47,3 @@ kitf = "1.0-draft"
 name = "Atrium Notebook"
 package = "Features"
 spaces[types][] = "og"
-
-; Autodetected dependencies that are omitted: spaces
