@@ -17,11 +17,11 @@ function atrium_taxonomy_default_vocabularies() {
       'module' => 'features_keywords',
       'weight' => '0',
       'nodes' => array(
-        'event' => 'event',
+        'blog' => 'blog',
+        'book' => 'book',
         'casetracker_basic_case' => 'casetracker_basic_case',
         'casetracker_basic_project' => 'casetracker_basic_project',
-        'book' => 'book',
-        'blog' => 'blog',
+        'event' => 'event',
       ),
     ),
   );

@@ -6,6 +6,24 @@
 function atrium_filter_default_formats() {
   $formats = array();
 
+  // Exported format: Messaging plain text
+  $formats['Messaging plain text'] = array(
+    'name' => 'Messaging plain text',
+    'roles' => array(),
+    'filters' => array(
+      '0' => array(
+        'module' => 'filter',
+        'delta' => '1',
+        'weight' => '-10',
+      ),
+      '1' => array(
+        'module' => 'messaging',
+        'delta' => '1',
+        'weight' => '-9',
+      ),
+    ),
+  );
+
   // Exported format: Full HTML
   $formats['Full HTML'] = array(
     'name' => 'Full HTML',
@@ -37,31 +55,13 @@ function atrium_filter_default_formats() {
     ),
   );
 
-  // Exported format: Messaging plain text
-  $formats['Messaging plain text'] = array(
-    'name' => 'Messaging plain text',
-    'roles' => array(),
-    'filters' => array(
-      '0' => array(
-        'module' => 'filter',
-        'delta' => '1',
-        'weight' => '-10',
-      ),
-      '1' => array(
-        'module' => 'messaging',
-        'delta' => '1',
-        'weight' => '-9',
-      ),
-    ),
-  );
-
   // Exported format: Markdown
   $formats['Markdown'] = array(
     'name' => 'Markdown',
     'roles' => array(
-      '0' => 'anonymous user',
-      '1' => 'authenticated user',
-      '2' => 'administrator',
+      '0' => 'administrator',
+      '1' => 'anonymous user',
+      '2' => 'authenticated user',
       '3' => 'manager',
     ),
     'filters' => array(
