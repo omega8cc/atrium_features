@@ -3,6 +3,7 @@ dependencies[] = "comment"
 dependencies[] = "context"
 dependencies[] = "features"
 dependencies[] = "nodereference"
+dependencies[] = "spaces"
 dependencies[] = "strongarm"
 dependencies[] = "views"
 description = "The blog lets you have a conversation on a topic with your team."
@@ -39,5 +40,3 @@ kitf = "1.0-draft"
 name = "Atrium Blog"
 package = "Features"
 spaces[types][] = "og"
-
-; Autodetected dependencies that are omitted: spaces
