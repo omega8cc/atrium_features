@@ -2,6 +2,7 @@ core = "6.x"
 dependencies[] = "comment"
 dependencies[] = "context"
 dependencies[] = "features"
+dependencies[] = "spaces"
 dependencies[] = "strongarm"
 dependencies[] = "views"
 description = "The shoutbox provides a team microblog."
@@ -29,5 +30,3 @@ kitf = "1.0-draft"
 name = "Atrium Shoutbox"
 package = "Features"
 spaces[types][] = "og"
-
-; Autodetected dependencies that are omitted: spaces
