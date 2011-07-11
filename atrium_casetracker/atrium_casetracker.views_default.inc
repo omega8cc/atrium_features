@@ -129,7 +129,7 @@ function atrium_casetracker_views_default_views() {
       'empty_zero' => 0,
       'link_to_node' => 0,
       'label_type' => 'widget',
-      'format' => 'default',
+      'format' => 'day',
       'multiple' => array(
         'multiple_number' => '',
         'multiple_from' => '',
