@@ -2,6 +2,7 @@ core = "6.x"
 dependencies[] = "context"
 dependencies[] = "features"
 dependencies[] = "imagecache"
+dependencies[] = "spaces"
 dependencies[] = "strongarm"
 dependencies[] = "ucreate"
 dependencies[] = "views"
@@ -22,5 +23,3 @@ name = "Atrium Members"
 package = "Atrium"
 spaces[types][] = "site"
 spaces[types][] = "og"
-
-; Autodetected dependencies that are omitted: spaces
