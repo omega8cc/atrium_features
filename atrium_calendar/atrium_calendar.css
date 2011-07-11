@@ -4,25 +4,23 @@
   float:left;
   line-height:15px;
   margin:0 5px 5px 0;
-  padding:5px 5px 5px 0px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px 5px;
   
 } 
 .atrium_calendar_event_type span {
-  background:transparent url(images/checked.gif) no-repeat scroll 2px 10%;  
+  background:transparent url(images/checked.gif) no-repeat scroll 2px 0%;  
   color:#ffffff;
   cursor:pointer;
   float:left;
   line-height:15px;
-  margin:5px;
-  padding-left: 20px;
+  padding: 5px 5px 5px 20px;
   white-space:nowrap;
 }
 
 
 .atrium_calendar_event_type span.deactive {
-  background:transparent url(images/checked.gif) no-repeat scroll 2px 83%;
+  background:transparent url(images/checked.gif) no-repeat scroll 2px 100%;
   color:#666666;
 }
