@@ -5,6 +5,7 @@
  */
 function atrium_context_default_contexts() {
   $export = array();
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -83,8 +84,8 @@ function atrium_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Intranet');
-
   $export['global'] = $context;
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -103,8 +104,8 @@ function atrium_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Theme');
-
   $export['layout_login'] = $context;
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -134,8 +135,8 @@ function atrium_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Theme');
-
   $export['layout_wide'] = $context;
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -172,8 +173,8 @@ function atrium_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Dashboard');
-
   $export['spaces_dashboard-custom-1'] = $context;
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -204,7 +205,7 @@ function atrium_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Intranet');
-
   $export['taxonomy_listing'] = $context;
+
   return $export;
 }
