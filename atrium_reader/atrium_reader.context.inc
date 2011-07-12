@@ -5,6 +5,7 @@
  */
 function atrium_reader_context_default_contexts() {
   $export = array();
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -63,8 +64,8 @@ function atrium_reader_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Featurewide context for Atrium Reader.');
   t('atrium_reader');
-
   $export['atrium_reader'] = $context;
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -131,8 +132,8 @@ function atrium_reader_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Single feed item listing page within the reader.');
   t('atrium_reader');
-
   $export['atrium_reader_listing'] = $context;
+
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -175,7 +176,7 @@ function atrium_reader_context_default_contexts() {
   // Included for use with string extractors like potx.
   t('Overview/landing page for reader.');
   t('atrium_reader');
-
   $export['atrium_reader_overview'] = $context;
+
   return $export;
 }

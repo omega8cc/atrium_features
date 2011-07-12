@@ -5,6 +5,7 @@
  */
 function atrium_reader_data_default() {
   $export = array();
+
   $data_table = new stdClass;
   $data_table->disabled = FALSE; /* Edit this to true to make a default data_table disabled initially */
   $data_table->api_version = 1;
@@ -156,7 +157,7 @@ function atrium_reader_data_default() {
       ),
     ),
   );
-
   $export['feeds_data_feed_reader'] = $data_table;
+
   return $export;
 }

@@ -45,6 +45,5 @@ function atrium_reader_node_info() {
 function atrium_reader_views_api() {
   return array(
     'api' => '2',
-    'path' => drupal_get_path('module', 'atrium_reader') .'/views',
   );
 }

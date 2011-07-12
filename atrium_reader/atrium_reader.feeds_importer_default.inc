@@ -5,6 +5,7 @@
  */
 function atrium_reader_feeds_importer_default() {
   $export = array();
+
   $feeds_importer = new stdClass;
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
   $feeds_importer->api_version = 1;
@@ -67,7 +68,7 @@ function atrium_reader_feeds_importer_default() {
     'expire_period' => 3600,
     'import_on_create' => 1,
   );
-
   $export['feed_reader'] = $feeds_importer;
+
   return $export;
 }
