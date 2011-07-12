@@ -38,3 +38,13 @@ function atrium_reader_node_info() {
   );
   return $items;
 }
+
+/**
+ * Implementation of hook_views_api().
+ */
+function atrium_reader_views_api() {
+  return array(
+    'api' => '2',
+    'path' => drupal_get_path('module', 'atrium_reader') .'/views',
+  );
+}
