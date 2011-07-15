@@ -164,7 +164,7 @@ function atrium_calendar_form_alter(&$form, $form_state, $form_id) {
     if ($form['tid']['#options']) {
       $options = '';
       foreach ($form['tid']['#options'] as $tid => $term) {
-        $options .= "<div class='crayon-$tid' ><span class='tid-$tid deactive'>$term</span></div>";
+        $options .= "<div class='crayon-". crayon_generate_index($tid) ."' ><span class='tid-$tid deactive'>$term</span></div>";
       }
       $form['options'] = array(
         '#type' => 'markup',
