@@ -11,7 +11,7 @@ function atrium_reader_menu_default_menu_links() {
     'menu_name' => 'features',
     'link_path' => 'reader',
     'router_path' => 'reader',
-    'link_title' => 'Feed reader',
+    'link_title' => 'Feed Reader',
     'options' => array(),
     'module' => 'system',
     'hidden' => '0',
@@ -22,7 +22,7 @@ function atrium_reader_menu_default_menu_links() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Feed reader');
+  t('Feed Reader');
 
 
   return $menu_links;

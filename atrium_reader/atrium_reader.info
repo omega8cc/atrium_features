@@ -12,7 +12,6 @@ description = "The reader lets your share news, image and twitter feeds with you
 features[content][] = "feed_reader-field_reader_feedtype"
 features[context][] = "atrium_reader"
 features[context][] = "atrium_reader_listing"
-features[context][] = "atrium_reader_overview"
 features[ctools][] = "context:context:3"
 features[ctools][] = "data:data_default:1"
 features[ctools][] = "feeds:feeds_importer_default:1"

@@ -1358,8 +1358,9 @@ function atrium_reader_views_default_views() {
     ),
   ));
   $handler->override_option('access', array(
-    'type' => 'atrium_reader',
-    'feedtype' => 'news',
+    'type' => 'spaces_feature',
+    'spaces_feature' => 'atrium_reader',
+    'perm' => 'access content',
   ));
   $handler->override_option('cache', array(
     'type' => 'none',
@@ -1376,18 +1377,18 @@ function atrium_reader_views_default_views() {
   $handler->override_option('title', 'News');
   $handler->override_option('path', 'reader/news');
   $handler->override_option('menu', array(
-    'type' => 'tab',
+    'type' => 'default tab',
     'title' => 'News',
     'description' => '',
     'weight' => '-10',
     'name' => 'navigation',
   ));
   $handler->override_option('tab_options', array(
-    'type' => 'none',
-    'title' => '',
+    'type' => 'normal',
+    'title' => 'Feed Reader',
     'description' => '',
-    'weight' => 0,
-    'name' => 'navigation',
+    'weight' => '0',
+    'name' => 'features',
   ));
   $handler = $view->new_display('page', 'image', 'page_2');
   $handler->override_option('fields', array(
@@ -1563,17 +1564,14 @@ function atrium_reader_views_default_views() {
       ),
     ),
   ));
-  $handler->override_option('access', array(
-    'type' => 'atrium_reader',
-    'feedtype' => 'image',
-  ));
   $handler->override_option('title', 'Images');
   $handler->override_option('items_per_page', 20);
   $handler->override_option('style_plugin', 'grid');
   $handler->override_option('style_options', array(
-    'grouping' => 'published',
-    'columns' => '4',
+    'grouping' => '',
+    'columns' => '3',
     'alignment' => 'horizontal',
+    'fill_single_line' => 1,
   ));
   $handler->override_option('path', 'reader/image');
   $handler->override_option('menu', array(
@@ -1767,10 +1765,6 @@ function atrium_reader_views_default_views() {
         'button' => 'Use default',
       ),
     ),
-  ));
-  $handler->override_option('access', array(
-    'type' => 'atrium_reader',
-    'feedtype' => 'twitter',
   ));
   $handler->override_option('title', 'Twitter');
   $handler->override_option('style_options', array(
