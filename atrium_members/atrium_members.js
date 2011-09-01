@@ -76,9 +76,11 @@ Drupal.behaviors.atrium_members = function(context) {
         }
       });
 
-      // Clear out textfield value on submit.
-      $('input.form-submit', this).mousedown(function() {
-        $('input.form-text', form).val('');
+      // Clear out textfield value on submit.      
+      $('input.form-submit', this).ajaxComplete(function(e, xhr, settings) {
+        if(settings.url.indexOf('members/add/ajax') > -1){
+          $('input.form-text', form).val('');
+        }
       });
     });
 };
