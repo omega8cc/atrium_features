@@ -361,3 +361,13 @@ function atrium_update_6016() {
   }
   return array(array('success' => TRUE, 'query' => 'Index added to node table.'));
 }
+
+/**
+ * Update 6017: Enable new module.
+ */
+function atrium_update_6017() {
+  drupal_install_modules(array(
+    'jquery_update',
+  ));
+  return array();
+}
