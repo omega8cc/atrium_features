@@ -69,8 +69,8 @@ function atrium_groups_spaces_og_breadcrumb_alter(&$bc) {
 function atrium_groups_context_page_reaction() {
   if (!spaces_get_space() && context_get('context', 'groups_listing')) {
     $breadcrumb = array(
-      l(t('Home'), '<front>', array('purl' =>array('disabled' => TRUE))),
-      l(t('Groups'), 'og', array('purl' =>array('disabled' => TRUE))),
+      l(t('Home'), '<front>', array('purl' => array('disabled' => TRUE))),
+      l(t('Groups'), 'og', array('purl' => array('disabled' => TRUE))),
     );
     drupal_set_breadcrumb($breadcrumb);
   }
