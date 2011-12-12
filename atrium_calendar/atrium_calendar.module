@@ -107,6 +107,29 @@ function atrium_calendar_nodeapi(&$node, $op, $teaser = NULL, $page = NULL) {
   }
 }
 
+function atrium_calendar_views_default_views_alter(&$views) {
+  if($views['calendar_listing']) {
+    $event_type_vid = variable_get('atrium_calendar_vocab', 1);
+    $event_type_array = array(
+        $event_type_vid => $event_type_vid,
+    );
+    $views['calendar_listing']->display['default']->display_options['relationships'] = array(
+      'term_node_tid' => array(
+        'label' => 'Event Type terms',
+        'required' => 0,
+        'vids' => $event_type_array,
+        'id' => 'term_node_tid',
+        'table' => 'node',
+        'field' => 'term_node_tid',
+        'relationship' => 'none',
+      ),
+    );
+    
+    $views['calendar_listing']->display['default']->display_options['fields']['tid']['relationship'] = 'term_node_tid';
+  }
+}
+
+
 /**
  * Block: contextual mini calendar block
  */
@@ -164,7 +187,7 @@ function atrium_calendar_form_alter(&$form, $form_state, $form_id) {
     if ($form['tid']['#options']) {
       $options = '';
       foreach ($form['tid']['#options'] as $tid => $term) {
-        $options .= "<div class='crayon-". crayon_generate_index($tid) ."' ><span class='tid-$tid deactive'>$term</span></div>";
+        $options .= "<div class='crayon-". crayon_generate_index($tid) ."' ><span class='tid-$tid deactive'>". check_plain($term) ."</span></div>";
       }
       $form['options'] = array(
         '#type' => 'markup',

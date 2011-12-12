@@ -11,10 +11,9 @@ function atrium_calendar_views_default_views() {
   $view->name = 'calendar_feed_items';
   $view->description = 'Atrium > Calendar feed items';
   $view->tag = 'atrium';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -99,20 +98,20 @@ function atrium_calendar_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '5' => 0,
-        '1' => 0,
-        '2' => 0,
-        '6' => 0,
-        '4' => 0,
+        5 => 0,
+        1 => 0,
+        2 => 0,
+        6 => 0,
+        4 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_is_member' => 0,
       'validate_argument_php' => '',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
-        '4' => 0,
+        2 => 0,
+        3 => 0,
+        4 => 0,
       ),
       'validate_argument_transform' => 0,
       'validate_user_restrict_roles' => 0,
@@ -214,10 +213,9 @@ function atrium_calendar_views_default_views() {
   $view->name = 'calendar_feeds';
   $view->description = 'Atrium > Calendar feeds';
   $view->tag = 'atrium';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -406,10 +404,9 @@ function atrium_calendar_views_default_views() {
   $view->name = 'calendar_listing';
   $view->description = 'Atrium > Calendar';
   $view->tag = 'atrium';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -484,8 +481,10 @@ function atrium_calendar_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -500,10 +499,14 @@ function atrium_calendar_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'set_precision' => FALSE,
       'precision' => 0,
       'decimal' => '.',
       'separator' => ',',
+      'format_plural' => 0,
+      'format_plural_singular' => '1',
+      'format_plural_plural' => '@count',
       'prefix' => '',
       'suffix' => '',
       'exclude' => 1,
@@ -537,9 +540,9 @@ function atrium_calendar_views_default_views() {
       'field' => 'date_argument',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
-        '3' => 0,
-        '4' => 0,
+        2 => 0,
+        3 => 0,
+        4 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -565,11 +568,11 @@ function atrium_calendar_views_default_views() {
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
       'validate_argument_vocabulary' => array(
-        '5' => 0,
-        '1' => 0,
-        '2' => 0,
-        '6' => 0,
-        '4' => 0,
+        5 => 0,
+        1 => 0,
+        2 => 0,
+        6 => 0,
+        4 => 0,
       ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
@@ -694,10 +697,10 @@ function atrium_calendar_views_default_views() {
       'group' => '0',
       'exposed' => TRUE,
       'expose' => array(
-        'use_operator' => 0,
         'operator' => 'tid',
-        'identifier' => 'tid',
         'label' => '',
+        'use_operator' => 0,
+        'identifier' => 'tid',
         'optional' => 1,
         'single' => 0,
         'remember' => 1,
@@ -756,10 +759,9 @@ function atrium_calendar_views_default_views() {
   $view->name = 'calendar_upcoming';
   $view->description = 'Atrium > Upcoming events';
   $view->tag = 'atrium';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
