@@ -149,7 +149,7 @@ function atrium_book_form_alter(&$form, &$form_state, $form_id) {
           $books = array();
           $books[$node->nid] = 1;
           if (is_array($view->result) && count($view->result)) {
-            foreach($view->result as $row) {
+            foreach ($view->result as $row) {
               $books[$row->nid] = 1;
             }
           }
